@@ -29,3 +29,4 @@ Route::fallback(function () {
 
 Route::get('/set_language/{lang}', [App\Http\Controllers\Controller::class, 'set_language'])->name('set_language');
 require __DIR__.'/auth.php';
+
