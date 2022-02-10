@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function posts(){
         // hasMany indicamos la relacion con muchos modelos
-        return $this->hasMany(Contacto::class);
+        return $this->hasMany(Posts::class);
     }
 }

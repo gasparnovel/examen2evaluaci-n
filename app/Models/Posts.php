@@ -14,17 +14,12 @@ class Posts extends Model
     // protege los campos para permitir actualizacion
     protected $fillable = [
         'user_id',
-        'nombre', 
-        'apellido', 
-        'edad', 
-        'fecha_de_nacimiento', 
-        'telefono', 
-        'email', 
-        'estudios',
-        'carnet', 
-        'descripcion', 
-        'favicon',
-        'imagen'    
+        'titulo', 
+        'extracto', 
+        'contenido', 
+        'caducable', 
+        'comentable', 
+        'acceso'  
     ];
 
     public function user(){
