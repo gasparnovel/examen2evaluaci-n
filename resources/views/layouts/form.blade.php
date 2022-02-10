@@ -28,7 +28,7 @@ fieldset>
     <div class="form-group m-3">
         <label class="text-white">
             @lang('traduccion.Content'): <input class="border-2 text-dark border-solid border-gray-100" type="text"
-                name="contenido" value="{{ old('contenido', $post->contenido) }}" />
+                name="contenido" value="{{ old('contenido', $post->contenido) }}" required/>
             @error('contenido')
                 <br>
                 <small class="text-danger">*{{ $message }}</small>
