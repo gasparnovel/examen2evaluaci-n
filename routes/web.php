@@ -14,11 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::resource('/posts', PostsController::class)->middleware(['auth']);
+
+Route::fallback(function () {
+    return redirect('/');
+});
+
+Route::get('/set_language/{lang}', [App\Http\Controllers\Controller::class, 'set_language'])->name('set_language');
 require __DIR__.'/auth.php';
