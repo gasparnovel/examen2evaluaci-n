@@ -36,14 +36,13 @@ class PostsController extends Controller
 
     public function edit($post)
     {
-        Gate::authorize('comprobar_role');
         $post = Posts::find($post);
         return view('posts.edit', compact('post'));
     }
 
     public function update(PostsRequest $request, Posts $post)
     {
-        $this->authorize('update', $post);
+        Gate::authorize('comprobar_role');
         $post->update($request->all());
         return redirect('posts');
     }
