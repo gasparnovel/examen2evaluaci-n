@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -15,10 +14,11 @@ class PostsController extends Controller
         $posts = Posts::all();
         return view('posts.index', compact('posts'));
     }
+}
 
     public function create(Posts $post)
     {
-        Gate::authorize('comprobar_role');
+        $this->authorize('create', $post);
         return view('posts.create', compact('post'));
     }
 
@@ -36,6 +36,7 @@ class PostsController extends Controller
 
     public function edit($post)
     {
+        Gate::authorize('comprobar_role');
         $post = Posts::find($post);
         return view('posts.edit', compact('post'));
     }
@@ -52,5 +53,4 @@ class PostsController extends Controller
         $this->authorize('delete', $post);
         $post->delete();
         return redirect()->route('posts.index');
-    }
 }
